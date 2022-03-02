@@ -1,13 +1,14 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import {Home,Details} from "@screens/index"
 
 
 
-import { Home,  } from "../screens/index";
 function Routers() {
   return (
     <>
       <Routes> 
         <Route path="/" element={<Home/>}/>
+        <Route path="/Details" element={<Details/>}/>
       </Routes>
     </>
   );

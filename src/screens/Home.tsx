@@ -1,5 +1,7 @@
+import { Layout } from "@Components/index"
+
 const Home =()=>{
-    return <h1>Hagleyson</h1>
+    return <Layout></Layout>
 }
 
 export default Home
