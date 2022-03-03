@@ -1,7 +1,7 @@
 import { Layout } from "@Components/index"
 
 const Details =()=>{
-    return <Layout></Layout>
+    return <Layout>detais</Layout>
 }
 
 export default Details

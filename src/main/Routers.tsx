@@ -8,7 +8,7 @@ function Routers() {
     <>
       <Routes> 
         <Route path="/" element={<Home/>}/>
-        <Route path="/Details" element={<Details/>}/>
+        <Route path="/details" element={<Details/>}/>
       </Routes>
     </>
   );

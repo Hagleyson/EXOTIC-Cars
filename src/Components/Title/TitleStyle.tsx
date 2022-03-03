@@ -27,10 +27,10 @@ export const TitleStyle = styled.h1`
         margin: 0 40px  0 0;
     `}   
     
-    ${(props:propsType)=>props.type === "cartModel" &&`
+    ${(props:propsType)=>props.type === "cardModel" &&`
         position:absolute;
-        top:5px;
-        left:5px;
+        top:25px;
+        left:15px;
         font-size:17px;
         font-weight: bold;        
         >p{
@@ -38,10 +38,10 @@ export const TitleStyle = styled.h1`
           font-size:17px;
         }
     `}
-    ${(props:propsType)=>props.type === "cartPrice" &&`
+    ${(props:propsType)=>props.type === "cardPrice" &&`
         position:absolute;
-        bottom:5px;
-        right:5px;
+        bottom:25px;
+        right:15px;
         font-size:24px;
         font-weight: bold;       
         color:${theme.darkGrey} ;
@@ -62,6 +62,12 @@ export const TitleStyle = styled.h1`
         }
         
     `}
-    
-    
+    ${(props:propsType)=>props.type === "cardBook" &&`
+        font-size:17px;
+        color:${theme.white};
+        position:absolute;
+        bottom:25px;
+        left:15px;                
+    `}
+       
 `

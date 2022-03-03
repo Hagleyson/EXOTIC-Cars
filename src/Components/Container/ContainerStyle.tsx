@@ -8,8 +8,7 @@ export const ContainerStyle = styled.div`
     display: flex;
     justify-content: flex-start;    
     align-items: center;    
-    flex-direction:row;
-   
+    flex-direction:row;        
     ${(props:propsType)=>props.type === "home" && `
         width:100%;
         height: 100%;            
@@ -21,14 +20,15 @@ export const ContainerStyle = styled.div`
     `}
     
     ${(props:propsType)=>props.type === "cardImage" &&`        
+        width:100%;
         max-width: 100%;
         height:100%;
         max-height:100%;    
         position:relative;         
         display:flex;
-        justify-content: center;        
+        justify-content: center;                
         img{
-            max-width: 80%;            
+            max-width: 70%;            
             position:absolute;
         }
         @media screen and (max-width: 612px){
@@ -39,8 +39,9 @@ export const ContainerStyle = styled.div`
     `}
     ${(props:propsType)=>props.type === "ball" &&`
         position:absolute;        
-        top: 10px;
-        right: 10px;
+        top: 25px;
+        right: 15px;
+        z-index:9999;  
         span{        
             height: 10px;
             width: 10px;            
@@ -53,5 +54,10 @@ export const ContainerStyle = styled.div`
             background-color: ${theme.ball};
         }
     `}   
-
+    ${(props:propsType)=>props.type === "card" &&`
+           width: 100%;
+           height: 100%;      
+               
+    `}   
+    
 `

@@ -1,7 +1,9 @@
-import React, { FC, useState } from "react"
+import { FC, useState } from "react"
+
 import { Container, Title } from "..";
 import { CardStyles } from "./CardStyles"
 
+import {useNavigate} from "react-router-dom"
 type propsType = {
     name?:string;
     model?:string;   
@@ -10,22 +12,28 @@ type propsType = {
 }
 const Card:FC<propsType> =(props)=>{
     const [selectedImg,setSelectedImg]=useState(0)
+    const navigate = useNavigate()
     const toggleImage = (idx:number)=>{
-        setSelectedImg(idx)
+        setSelectedImg(idx)        
     }
-    return <CardStyles> 
-            <Title type="cartModel">{props.name} <p>{props.model?.toUpperCase()}</p></Title>
-
-            <Container type="cardImage"> 
-                <Container  type="ball">
-                    {props.imgs?.map((img,idx)=>                     
-                        <span key={idx} className={selectedImg === idx?"selected":undefined} onClick={()=>toggleImage(idx)}/>
-                    )}
-                </Container>
-                {<img src={props.imgs[selectedImg].img} alt={props.imgs[selectedImg].label}/>}               
-                         
+    const redirect =()=>{
+        navigate("/details")
+    }
+    return <CardStyles > 
+            <Container  type="ball">
+                {props.imgs?.map((img,idx)=>                     
+                    <span key={idx} className={selectedImg === idx?"selected":undefined} onClick={()=>toggleImage(idx)}/>
+                )}
             </Container>
-            <Title type="cartPrice"> <span>$</span>{props.price}<span>/day</span></Title>
+             <Container type="card">
+                  <Title type="cardModel">{props.name} <p>{props.model?.toUpperCase()}</p></Title>
+
+                <Container type="cardImage"> 
+                   {<img src={props.imgs[selectedImg].img} alt={props.imgs[selectedImg].label}/>} 
+                </Container>           
+                <Title type="cardPrice"> <span>$</span>{props.price}<span>/day</span></Title>
+                <Title type="cardBook">Book Now</Title>
+            </Container> 
           </CardStyles>
 }
 

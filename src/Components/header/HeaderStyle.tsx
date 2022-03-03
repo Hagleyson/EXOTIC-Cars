@@ -11,7 +11,11 @@ export const HeaderStyle  = styled.header`
    background-color: ${theme.white};   
    box-shadow: ${theme.boxShadow};
    z-index: 999;
-   >div:nth-child(2){
-      display: none;
+   @media screen and (max-width: 1107px){
+      >div:nth-child(2){
+         display: none;
+      }
    }
+   
+   
 `
