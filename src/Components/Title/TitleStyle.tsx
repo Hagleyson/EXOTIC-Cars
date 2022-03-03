@@ -33,7 +33,7 @@ export const TitleStyle = styled.h1`
         left:5px;
         font-size:17px;
         font-weight: bold;        
-        >h1{
+        >p{
           font-weight: lighter;        
           font-size:17px;
         }
