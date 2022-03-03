@@ -1,4 +1,4 @@
-import { Card, Container, Layout, Title } from "@Components/index"
+import { Card, Container, Layout } from "@Components/index"
 
 const Home =()=>{
     return <Layout type="home">

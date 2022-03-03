@@ -10,4 +10,5 @@ export const HeaderStyle  = styled.header`
    justify-content: space-between;
    background-color: ${theme.white};   
    box-shadow: ${theme.boxShadow};
+   z-index: 999;
 `
