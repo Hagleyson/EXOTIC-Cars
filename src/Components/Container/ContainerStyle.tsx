@@ -31,9 +31,9 @@ export const ContainerStyle = styled.div`
             max-width: 80%;            
             position:absolute;
         }
-        @media screen and (max-width: 1335px){
+        @media screen and (max-width: 612px){
             img{                
-                max-width:100%;
+                max-width:90%;
             }
         }
     `}
