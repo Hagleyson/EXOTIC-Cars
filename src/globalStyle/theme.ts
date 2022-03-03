@@ -1,5 +1,6 @@
 export const theme ={
     white:"#FFFFFF",
+    card:"#F8F8FA",
     boxShadow:"0px 10px 30px #0000001A",
     boxShadowSecondary:"0px 3px 15px #00000014",
     darkGrey:"#313136",

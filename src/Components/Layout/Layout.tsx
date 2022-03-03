@@ -1,9 +1,16 @@
 import { LayoutStyle } from "./LayoutStyle"
-import { Header } from ".."
+import { Header, Main } from ".."
+import { FC } from "react"
 
-const Layout =()=>{
+type propsType={
+    type?:string
+}
+const Layout:FC<propsType> =(props)=>{
     return <LayoutStyle>
         <Header/>
+        <Main > 
+            {props.children}
+        </Main>
     </LayoutStyle>
 }
 
