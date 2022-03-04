@@ -76,7 +76,7 @@ export const TitleStyle = styled.h1`
         color:${theme.darkGrey};        
         margin-left:10px;        
         >p{
-            font-size:53px;
+          font-size:40px;
           font-weight: lighter;      
         }
     `}        

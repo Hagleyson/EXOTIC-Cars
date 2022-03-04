@@ -4,7 +4,7 @@ import styled from "styled-components";
 type propsType = {
     typeStyle?:string;
     secondary?:boolean;
-    action?:boolean;
+    moveSlide?:boolean;
 }
 export const ButtonStyle = styled.button`  
     margin: 0 10px;
@@ -27,27 +27,30 @@ export const ButtonStyle = styled.button`
             color:${theme.purple}    ;
         `}
     `}    
-    ${(props:propsType)=>props.typeStyle === "carousel" && `
+    ${(props:propsType)=>props.typeStyle === "carousel" && `        
         border:3px solid ${theme.darkGrey};
         background-color:${theme.darkGrey};
         font-size:16px;
         font-weight: lighter;
         color:${theme.white};   
         box-shadow: 0px 5px 20px #0000001A;
-        border-radius: 25px;
-        padding:10px 20px;
+        border-radius: 25px;        
+        border-width: 1px;        
+        width: 177px;
+        height: 50px;
 
         ${props.secondary && `
-            
-        `}
+            background-color:${theme.white};
+            color:${theme.darkGrey};
+        `};
 
-        ${props.action && `
-        width: 42px;
+        ${props.moveSlide && `          
             height: 42px;
             border-radius:50%;
             padding:0px;
+            width: 32px;
         `}
     `}
-     
+    
     
 `

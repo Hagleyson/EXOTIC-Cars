@@ -5,4 +5,5 @@ import Container from "./Container/Container";
 import Button from "./Button/Button";
 import Main from "./Main/Main"
 import Card from "./Card/Card";
-export {Header,Layout,Title,Container,Button,Main,Card}
+import ContentCarousel from "./ContentCarousel/ContentCarousel";
+export {Header,Layout,Title,Container,Button,Main,Card,ContentCarousel}

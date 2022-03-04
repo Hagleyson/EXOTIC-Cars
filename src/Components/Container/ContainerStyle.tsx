@@ -68,9 +68,9 @@ export const ContainerStyle = styled.div`
     `}
 
      ${(props:propsType)=>props.type === "logo" &&`          
-        top:20px;
-        left: 40px;   
-        position:absolute;             
+        position:absolute;
+        top:60px;
+        left: 40px;                        
         >img{
           width   :91px ;
           height: 123px;
@@ -79,19 +79,40 @@ export const ContainerStyle = styled.div`
 
     ${(props:propsType)=>props.type === "colorDescription" &&`
         position:absolute;        
-        top:80px;
+        top:120px;
         right: 80px;               
     `}
     
     ${(props:propsType)=>props.type ==="cartMain" && `
         width: 100%;
-        height: 80%;
-        justify-content: space-around;        
+        height: 60%;
+        justify-content: center;
+        position:relative;                
+        >div:first-child{                        
+            padding-left:40px;
+            position:absolute;
+            left:40px;
+            top:calc(50% - 10px);        
+        }                                   
+    `}
+    ${(props:propsType)=>props.type ==="imgShowCart" && `
+        width: 100%;
+        height: 100%;
+        justify-content: center;                        
+        flex-direction: column;        
         >img{
-            width: 60%;
-            height: 60;
+            width: 50%;
+            height: 50%;       
+                 
         }    
     `}
-    
- 
+     ${(props:propsType)=>props.type ==="carousel" && `
+        width: 100%;
+        height:40%;
+        max-height: 40%;   
+        background:gold;             
+        justify-content: space-around;
+        align-items: center;
+     `};
+     
 `

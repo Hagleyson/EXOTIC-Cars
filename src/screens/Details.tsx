@@ -1,7 +1,14 @@
-import { Button, Container, Layout, Title } from "@Components/index"
+import { Button, Container, ContentCarousel, Layout, Title } from "@Components/index"
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs"
-
+import { useNavigate } from "react-router-dom"
+import img1 from "../assets/img/ferrari/FerrariCalifornia2.png"
+import img2 from "../assets/img/ferrari/FerrariCalifornia3.png"
+import img3 from "../assets/img/ferrari/FerrariCalifornia.png"
 const Details =()=>{
+    const navigate = useNavigate()
+    const redirect =()=>{
+        navigate("/")
+    }
     return <Layout>
         <Container type="details">
             <Container type="logo">
@@ -9,21 +16,23 @@ const Details =()=>{
                 <Title type="textDetails">Ferrari California <p>$725/day</p></Title>                
             </Container>
             <Container type="colorDescription">
-                <Title type="textDetails">01 <p>RED</p></Title>                
+                <Title type="textDetails">01 <p>Red</p></Title>                
             </Container>
             <Container type="cartMain" >
                 <Container>
-                    <Button typeStyle="carousel" secondary> <BsArrowLeft/> Back to catalog</Button>
+                    <Button typeStyle="carousel" handleClick={redirect} secondary> <BsArrowLeft/> Back to catalog</Button>
                 </Container>
-                <img src={require("../assets/img/ferrari/fCalifornia.png")} alt="ferrari2"  />
+                <Container type="imgShowCart">
+                    <img src={require("../assets/img/ferrari/fCalifornia.png")} alt="ferrari2"  />
+                    <Button typeStyle="carousel">Book now <BsArrowRight/></Button>
+                </Container>
             </Container>
-            
-            <Container>
-                <Button typeStyle="carousel">Book now <BsArrowRight/></Button>
-            </Container>
-            <Container>
-                <Button typeStyle="carousel" action > <BsArrowLeft/></Button>
-                <Button typeStyle="carousel" action><BsArrowRight/></Button>
+            <Container type="carousel">
+                <Button typeStyle="carousel" action={true} > <BsArrowLeft/></Button>
+                <ContentCarousel  img={img1}/>
+                <ContentCarousel selected img={img2}/>
+                <ContentCarousel img={img3}/>
+                <Button typeStyle="carousel" action={true}><BsArrowRight/></Button>
             </Container>
         </Container>
     </Layout>
