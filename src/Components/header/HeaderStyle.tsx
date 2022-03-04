@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { theme } from "@globalStyle/index"
 
-
 export const HeaderStyle  = styled.header`   
    width: 100%;
    height: 80px;
@@ -10,7 +9,9 @@ export const HeaderStyle  = styled.header`
    justify-content: space-between;
    background-color: ${theme.white};   
    box-shadow: ${theme.boxShadow};
-   z-index: 999;
+   position: absolute;
+   top: 0;
+   z-index: 1;
    @media screen and (max-width: 1107px){
       >div:nth-child(2){
          display: none;

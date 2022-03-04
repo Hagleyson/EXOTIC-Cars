@@ -68,6 +68,17 @@ export const TitleStyle = styled.h1`
         position:absolute;
         bottom:25px;
         left:15px;                
-    `}
-       
+    `}  
+    
+     ${(props:propsType)=>props.type === "textDetails" &&`
+        font-size:67px;        
+        font-weight: bold;    
+        color:${theme.darkGrey};        
+        margin-left:10px;        
+        >p{
+            font-size:53px;
+          font-weight: lighter;      
+        }
+    `}        
+    
 `

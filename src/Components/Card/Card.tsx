@@ -25,7 +25,7 @@ const Card:FC<propsType> =(props)=>{
                     <span key={idx} className={selectedImg === idx?"selected":undefined} onClick={()=>toggleImage(idx)}/>
                 )}
             </Container>
-             <Container type="card">
+             <Container handleClick={redirect} type="card">
                   <Title type="cardModel">{props.name} <p>{props.model?.toUpperCase()}</p></Title>
 
                 <Container type="cardImage"> 

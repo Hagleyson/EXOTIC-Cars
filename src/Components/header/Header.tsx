@@ -11,8 +11,8 @@ const Header =()=>{
             <IoSearchOutline className="svg-search"/>
         </Container>
         <Container>
-            <Button typeStyle="primary">Sign up</Button>
-            <Button typeStyle="secondary">Sign in</Button>
+            <Button typeStyle="header">Sign up</Button>
+            <Button typeStyle="header" secondary>Sign in</Button>
         </Container>
     </HeaderStyle>
 }

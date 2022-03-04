@@ -8,7 +8,8 @@ export const ContainerStyle = styled.div`
     display: flex;
     justify-content: flex-start;    
     align-items: center;    
-    flex-direction:row;        
+    flex-direction:row;       
+    flex-wrap :wrap ;
     ${(props:propsType)=>props.type === "home" && `
         width:100%;
         height: 100%;            
@@ -59,5 +60,38 @@ export const ContainerStyle = styled.div`
            height: 100%;      
                
     `}   
+    ${(props:propsType)=>props.type === "details" &&`
+        width: 100%;
+        height: 100%;      
+        background: transparent linear-gradient(125deg, #FFFFFF 0%, #D8D7D7 100%) 0% 0% no-repeat padding-box;               
+        position:relative;                  
+    `}
+
+     ${(props:propsType)=>props.type === "logo" &&`          
+        top:20px;
+        left: 40px;   
+        position:absolute;             
+        >img{
+          width   :91px ;
+          height: 123px;
+        }
+    `}
+
+    ${(props:propsType)=>props.type === "colorDescription" &&`
+        position:absolute;        
+        top:80px;
+        right: 80px;               
+    `}
     
+    ${(props:propsType)=>props.type ==="cartMain" && `
+        width: 100%;
+        height: 80%;
+        justify-content: space-around;        
+        >img{
+            width: 60%;
+            height: 60;
+        }    
+    `}
+    
+ 
 `
