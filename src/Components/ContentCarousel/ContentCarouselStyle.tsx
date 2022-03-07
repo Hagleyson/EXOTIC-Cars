@@ -10,6 +10,7 @@ export const ContentCarouselStyle = styled.div`
   background: #cecece 0% 0% no-repeat padding-box;
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   > div {
     width: 100%;

@@ -23,14 +23,30 @@ const Details = () => {
     navigate("/");
   };
   const nextImage = () => {
-    if (carrocel.length === carrocel.indexOf(currentImage) + 1) {
-      setCurrentImage(carrocel[0]);
-    }
-    if (carrocel.indexOf(currentImage) < carrocel.length) {
-      console.log(carrocel.indexOf(currentImage));
-      console.log(carrocel[carrocel.indexOf(currentImage)]);
-      //   setCurrentImage(carrocel[carrocel.indexOf(currentImage) + 1]);
-    }
+    let x: any[] = [];
+    carrocel.forEach((img, idx, array) => {
+      if (array.length - 1 === idx) {
+        x.push(array[0]);
+        return;
+      }
+      if (currentImage.id === img.id) {
+        x.push(array[idx + 1]);
+      }
+    });
+    setCurrentImage(x[0]);
+  };
+  const prevImage = () => {
+    let x: any[] = [];
+    carrocel.forEach((img, idx, array) => {
+      if (currentImage.id === img.id && idx === 0) {
+        x.push(array.pop());
+        return;
+      }
+      if (currentImage.id === img.id) {
+        x.push(array[idx - 1]);
+      }
+    });
+    setCurrentImage(x[0]);
   };
   return (
     <Layout>
@@ -63,7 +79,7 @@ const Details = () => {
           </Container>
         </Container>
         <Container type="carousel">
-          <Button typeStyle="carousel" action={true}>
+          <Button handleClick={prevImage} typeStyle="carousel" action={true}>
             <BsArrowLeft />
           </Button>
           <Container type="imgsCarousel">
@@ -72,11 +88,12 @@ const Details = () => {
                 selected={img.id === currentImage.id}
                 key={img.id}
                 img={img.img}
+                handleClick={() => setCurrentImage(img)}
               />
             ))}
           </Container>
-          <Button typeStyle="carousel" action={true}>
-            <BsArrowRight onClick={nextImage} />
+          <Button handleClick={nextImage} typeStyle="carousel" action={true}>
+            <BsArrowRight />
           </Button>
         </Container>
       </Container>
