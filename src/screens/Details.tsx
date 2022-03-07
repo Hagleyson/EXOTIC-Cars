@@ -13,40 +13,56 @@ import img3 from "../assets/img/ferrari/FerrariCalifornia.png";
 import { useState } from "react";
 const Details = () => {
   const navigate = useNavigate();
-  const carrocel = [
-    { img: img1, id: 1 },
-    { img: img2, id: 2 },
-    { img: img3, id: 3 },
+  const carousel = [
+    { id: 1, img: img1 },
+    { id: 2, img: img2 },
+    { id: 3, img: img3 },
   ];
-  const [currentImage, setCurrentImage] = useState(carrocel[0]);
+  const [currentImage, setCurrentImage] = useState(carousel[1]);
+  const [imgs, setImgs] = useState(carousel);
   const redirect = () => {
     navigate("/");
   };
   const nextImage = () => {
     let x: any[] = [];
-    carrocel.forEach((img, idx, array) => {
-      if (array.length - 1 === idx) {
-        x.push(array[0]);
-        return;
-      }
+    let newArray: any[] = [];
+    imgs.forEach((img, idx, array) => {
       if (currentImage.id === img.id) {
         x.push(array[idx + 1]);
+        newArray.push(array[idx]);
+        newArray.push(array[idx + 1]);
+        newArray.push(array[idx - 1]);
       }
     });
     setCurrentImage(x[0]);
+    setImgs(newArray);
   };
+
   const prevImage = () => {
     let x: any[] = [];
-    carrocel.forEach((img, idx, array) => {
-      if (currentImage.id === img.id && idx === 0) {
-        x.push(array.pop());
-        return;
-      }
+    let newArray: any[] = [];
+    imgs.forEach((img, idx, array) => {
       if (currentImage.id === img.id) {
         x.push(array[idx - 1]);
+        newArray.push(array[idx + 1]);
+        newArray.push(array[idx - 1]);
+        newArray.push(array[idx]);
       }
     });
     setCurrentImage(x[0]);
+    setImgs(newArray);
+  };
+  const listCarCarousel = () => {
+    return imgs.map((img) => {
+      return (
+        <ContentCarousel
+          selected={img.id === currentImage.id}
+          key={img.id}
+          img={img.img}
+          handleClick={() => setCurrentImage(img)}
+        />
+      );
+    });
   };
   return (
     <Layout>
@@ -82,16 +98,7 @@ const Details = () => {
           <Button handleClick={prevImage} typeStyle="carousel" action={true}>
             <BsArrowLeft />
           </Button>
-          <Container type="imgsCarousel">
-            {carrocel.map((img, idx) => (
-              <ContentCarousel
-                selected={img.id === currentImage.id}
-                key={img.id}
-                img={img.img}
-                handleClick={() => setCurrentImage(img)}
-              />
-            ))}
-          </Container>
+          <Container type="imgsCarousel">{listCarCarousel()}</Container>
           <Button handleClick={nextImage} typeStyle="carousel" action={true}>
             <BsArrowRight />
           </Button>
