@@ -1,16 +1,17 @@
-
 import { theme } from "@globalStyle/theme";
 import styled from "styled-components";
-type propsType={
-    type?:string
-}
-export const ContainerStyle = styled.div`    
-    display: flex;
-    justify-content: flex-start;    
-    align-items: center;    
-    flex-direction:row;       
-    flex-wrap :wrap ;
-    ${(props:propsType)=>props.type === "home" && `
+type propsType = {
+  type?: string;
+};
+export const ContainerStyle = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  ${(props: propsType) =>
+    props.type === "home" &&
+    `
         width:100%;
         height: 100%;            
         display: flex;
@@ -19,8 +20,10 @@ export const ContainerStyle = styled.div`
         flex-wrap: wrap;
         align-items: flex-start;         
     `}
-    
-    ${(props:propsType)=>props.type === "cardImage" &&`        
+
+  ${(props: propsType) =>
+    props.type === "cardImage" &&
+    `        
         width:100%;
         max-width: 100%;
         height:100%;
@@ -38,7 +41,9 @@ export const ContainerStyle = styled.div`
             }
         }
     `}
-    ${(props:propsType)=>props.type === "ball" &&`
+    ${(props: propsType) =>
+    props.type === "ball" &&
+    `
         position:absolute;        
         top: 25px;
         right: 15px;
@@ -55,19 +60,25 @@ export const ContainerStyle = styled.div`
             background-color: ${theme.ball};
         }
     `}   
-    ${(props:propsType)=>props.type === "card" &&`
+    ${(props: propsType) =>
+    props.type === "card" &&
+    `
            width: 100%;
            height: 100%;      
                
     `}   
-    ${(props:propsType)=>props.type === "details" &&`
+    ${(props: propsType) =>
+    props.type === "details" &&
+    `
         width: 100%;
         height: 100%;      
         background: transparent linear-gradient(125deg, #FFFFFF 0%, #D8D7D7 100%) 0% 0% no-repeat padding-box;               
         position:relative;                  
     `}
 
-     ${(props:propsType)=>props.type === "logo" &&`          
+     ${(props: propsType) =>
+    props.type === "logo" &&
+    `          
         position:absolute;
         top:60px;
         left: 40px;                        
@@ -77,15 +88,19 @@ export const ContainerStyle = styled.div`
         }
     `}
 
-    ${(props:propsType)=>props.type === "colorDescription" &&`
+    ${(props: propsType) =>
+    props.type === "colorDescription" &&
+    `
         position:absolute;        
         top:120px;
         right: 80px;               
     `}
     
-    ${(props:propsType)=>props.type ==="cartMain" && `
+    ${(props: propsType) =>
+    props.type === "cartMain" &&
+    `
         width: 100%;
-        height: 60%;
+        height: 70%;
         justify-content: center;
         position:relative;                
         >div:first-child{                        
@@ -93,9 +108,12 @@ export const ContainerStyle = styled.div`
             position:absolute;
             left:40px;
             top:calc(50% - 10px);        
-        }                                   
+        }          
+                                 
     `}
-    ${(props:propsType)=>props.type ==="imgShowCart" && `
+    ${(props: propsType) =>
+    props.type === "imgShowCart" &&
+    `
         width: 100%;
         height: 100%;
         justify-content: center;                        
@@ -105,14 +123,28 @@ export const ContainerStyle = styled.div`
             height: 50%;       
                  
         }    
+        
     `}
-     ${(props:propsType)=>props.type ==="carousel" && `
+  ${(props: propsType) =>
+    props.type === "carousel" &&
+    `
         width: 100%;
-        height:40%;
-        max-height: 40%;   
-        background:gold;             
-        justify-content: space-around;
-        align-items: center;
+        height:30%;  
+        max-height:30%;      
+        justify-content: center;
+        align-items: center;           
+        padding:20px;
+        
      `};
-     
-`
+
+  ${(props: propsType) =>
+    props.type === "imgsCarousel" &&
+    `
+        width: 85%;
+        height:100%;       
+        max-height:100%;
+        overflow: auto;            
+        justify-content: space-around;       
+        align-items: baseline;        
+     `};
+`;
