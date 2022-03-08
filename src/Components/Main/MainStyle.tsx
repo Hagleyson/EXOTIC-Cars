@@ -7,7 +7,7 @@ export const MainStyle = styled.main`
   max-height: calc(100vh - 80px);
   position: absolute;
   top: 80px;
-  background-color: ${theme.gray};
+  background-color: ${theme.background};
   overflow: auto;
   z-index: 0;
 `;

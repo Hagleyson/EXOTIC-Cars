@@ -18,7 +18,7 @@ const Details = () => {
     { id: 2, img: img2 },
     { id: 3, img: img3 },
   ];
-  const [currentImage, setCurrentImage] = useState(carousel[1]);
+  const [currentImage, setCurrentImage] = useState(carousel[1] || carousel[0]);
   const [imgs, setImgs] = useState(carousel);
   const redirect = () => {
     navigate("/");
@@ -26,6 +26,7 @@ const Details = () => {
   const nextImage = () => {
     let x: any[] = [];
     let newArray: any[] = [];
+    if (imgs.length === 1) return;
     imgs.forEach((img, idx, array) => {
       if (currentImage.id === img.id) {
         x.push(array[idx + 1]);
@@ -41,6 +42,7 @@ const Details = () => {
   const prevImage = () => {
     let x: any[] = [];
     let newArray: any[] = [];
+    if (imgs.length === 1) return;
     imgs.forEach((img, idx, array) => {
       if (currentImage.id === img.id) {
         x.push(array[idx - 1]);

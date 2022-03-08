@@ -1,144 +1,40 @@
-import { Card, Container, Layout } from "@Components/index"
-import img1 from "../assets/img/ferrari/fCalifornia.png"
-import img2 from "../assets/img/ferrari/FerrariCalifornia.png"
-import img3 from "../assets/img/ferrari/FerrariCalifornia2.png"
-const Home =()=>{
-    return <Layout type="home">
-            <Container type="home">
-                <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />       
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />  
-                 <Card 
-                    name="Ferrari" 
-                    model="California" 
-                    price="725" 
-                    imgs={[
-                      {img:img1,label:"f1"},
-                      {img:img2,label:"f2"},
-                      {img:img3,label:"f3"}                      
-                      
-                    ]}
-                />         
-            </Container>
-        </Layout>
-}
+import { Card, Container, Layout, Loader } from "@Components/index";
+import { useEffect, useState } from "react";
+import { fetchCar } from "src/helpers";
 
-export default Home
+const Home = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [cars, setCars] = useState([]);
+  useEffect(() => {
+    const loaderCars = async () => {
+      setIsLoading(true);
+      const request = await fetchCar();
+      console.log(request);
+      setCars(request);
+      setIsLoading(false);
+    };
+    loaderCars();
+  }, []);
+
+  return (
+    <Layout type="home">
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Container type="home">
+          {cars.map(({ id, name, model, price, imgs }) => (
+            <Card
+              key={id}
+              name={name}
+              model={model}
+              price={price}
+              imgs={imgs}
+            />
+          ))}
+        </Container>
+      )}
+    </Layout>
+  );
+};
+
+export default Home;
