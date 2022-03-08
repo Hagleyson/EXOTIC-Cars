@@ -5,6 +5,7 @@
       "name": "Alfa",
       "model": "Romeo",
       "price": "90000",
+      "logo": "https://i.ibb.co/Rj8sS7X/alfa-Romeno-removebg-preview.png",
       "imgs": [
         {
           "id": "01",
@@ -19,6 +20,7 @@
       "name": "Bentley",
       "model": "Continental GT",
       "price": "90000",
+      "logo": "https://i.ibb.co/71G7B4D/bentley-removebg-preview.png",
       "imgs": [
         {
           "color": "Blue",
@@ -56,6 +58,7 @@
       "name": "BMW",
       "model": "Competition",
       "price": "90000",
+      "logo": "https://i.ibb.co/vVYBfsp/bmw-removebg-preview.png",
       "imgs": [
         {
           "color": "White",
@@ -69,6 +72,7 @@
       "name": "Veyron",
       "model": "Spyder",
       "price": "90000",
+      "logo": "https://i.ibb.co/1qPT77n/veyron-removebg-preview.png",
       "imgs": [
         {
           "color": "Blue",
@@ -82,6 +86,7 @@
       "name": "Chevrolet",
       "model": "Covertt",
       "price": "90000",
+      "logo": "https://i.ibb.co/P16QchS/Chevrolet-Logo.png",
       "imgs": [
         {
           "color": "White",
@@ -92,9 +97,10 @@
     },
     {
       "id": "07",
-      "name": "lamborghini aventador",
+      "name": "Lamborghini",
       "model": "Aventador",
       "price": "90000",
+      "logo": "https://i.ibb.co/Yfs9CSZ/lambo-removebg-preview.png",
       "imgs": [
         {
           "color": "White",
@@ -108,6 +114,7 @@
       "name": "Mclaren",
       "model": "P1 GTR",
       "price": "90000",
+      "logo": "https://i.ibb.co/n6Dvqvz/mclaren-removebg-preview.png",
       "imgs": [
         {
           "color": "Blue",
@@ -121,6 +128,7 @@
       "name": "Mercedes bens",
       "model": "0090",
       "price": "90000",
+      "logo": "https://i.ibb.co/jVbW43d/mercedes-removebg-preview.png",
       "imgs": [
         {
           "color": "Blue",
@@ -134,6 +142,7 @@
       "name": "Poshe",
       "model": "911 turbo",
       "price": "90000",
+      "logo": "https://i.ibb.co/bN0yZjT/porsche.png",
       "imgs": [
         {
           "color": "White",
@@ -153,15 +162,101 @@
       ]
     },
     {
-      "id": "09",
+      "id": "11",
       "name": "Rolls-Royce",
       "model": "0520",
       "price": "90000",
+      "logo": "https://i.ibb.co/tz18s5Y/rr-removebg-preview.png",
       "imgs": [
         {
           "color": "Red",
           "img": "https://i.ibb.co/fCCHQNw/Rolls-Royce.png",
           "label": "Rolls-Royce"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Chevrolet",
+      "model": "Impala 67",
+      "price": "40000",
+      "logo": "https://i.ibb.co/P16QchS/Chevrolet-Logo.png",
+      "imgs": [
+        {
+          "color": "Black",
+          "img": "https://i.ibb.co/WpD7Bdd/clipart4287038.png",
+          "label": "chevrolete-impala"
+        },
+        {
+          "color": "White",
+          "img": "https://i.ibb.co/hfKG26W/341-3411620-chevy-impala-1967-png-transparent-png-removebg-preview.png",
+          "label": "chevrolete-impala"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Chevrolet",
+      "model": "Impala 67",
+      "price": "40000",
+      "logo": "https://i.ibb.co/P16QchS/Chevrolet-Logo.png",
+      "imgs": [
+        {
+          "color": "Black",
+          "img": "https://i.ibb.co/mN90ZmT/341-3411620-chevy-impala-1967-png-transparent-png-removebg-preview.png",
+          "label": "chevrolete-impala"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Nissan",
+      "model": "Skyline",
+      "price": "50000",
+      "logo": "https://i.ibb.co/SNSJHVc/nissan-removebg-preview.png",
+      "imgs": [
+        {
+          "color": "Silver",
+          "img": "https://i.ibb.co/6BpmzHv/01-removebg-preview-1.png",
+          "label": "nissan skyline gtr r34"
+        },
+        {
+          "color": "Silver",
+          "img": "https://i.ibb.co/58S5D5j/02-removebg-preview.png",
+          "label": "nissan skyline gtr r34"
+        },
+        {
+          "color": "Blue",
+          "img": "https://i.ibb.co/NW3fVjs/03.png",
+          "label": "nissan skyline gtr r34"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Mitsubishi",
+      "model": "Eclipse",
+      "price": "240000",
+      "logo": "https://i.ibb.co/LJvCmYs/mit-removebg-preview.png",
+      "imgs": [
+        {
+          "color": "Silver",
+          "img": "https://i.ibb.co/HVswqLt/01-removebg-preview.png",
+          "label": "Mitsubishi Eclipse"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Toyota",
+      "model": "Supra",
+      "price": "140000",
+      "logo": "https://i.ibb.co/X8d4KfY/toy-removebg-preview.png",
+      "imgs": [
+        {
+          "color": "Orange",
+          "img": "https://i.ibb.co/4sgnRpb/6bc0de26a9d12162a73cb159c39e1dc7-removebg-preview.png",
+          "label": "Toyota Supra"
         }
       ]
     }

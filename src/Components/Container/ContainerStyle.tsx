@@ -18,7 +18,10 @@ export const ContainerStyle = styled.div`
         padding:10px 100px;
         justify-content: space-between;          
         flex-wrap: wrap;
-        align-items: flex-start;         
+        align-items: flex-start; 
+        @media screen and (max-width: 583px) {
+            padding: 20px 40px;
+        }        
     `}
 
   ${(props: propsType) =>
@@ -30,10 +33,10 @@ export const ContainerStyle = styled.div`
         max-height:100%;    
         position:relative;         
         display:flex;
-        justify-content: center;                
+        justify-content: center;                       
         img{
             max-width: 70%;            
-            position:absolute;
+            position:absolute;            
         }
         @media screen and (max-width: 612px){
             img{                
@@ -41,7 +44,7 @@ export const ContainerStyle = styled.div`
             }
         }
     `}
-    ${(props: propsType) =>
+  ${(props: propsType) =>
     props.type === "ball" &&
     `
         position:absolute;        

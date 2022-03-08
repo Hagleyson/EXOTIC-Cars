@@ -23,13 +23,14 @@ const Card: FC<propsType> = (props) => {
   return (
     <CardStyles>
       <Container type="ball">
-        {props.imgs?.map((img, idx) => (
-          <span
-            key={idx}
-            className={selectedImg === idx ? "selected" : undefined}
-            onClick={() => toggleImage(idx)}
-          />
-        ))}
+        {props.imgs.length > 1 &&
+          props.imgs?.map((img, idx) => (
+            <span
+              key={idx}
+              className={selectedImg === idx ? "selected" : undefined}
+              onClick={() => toggleImage(idx)}
+            />
+          ))}
       </Container>
       <Container handleClick={redirect} type="card">
         <Title type="cardModel">
