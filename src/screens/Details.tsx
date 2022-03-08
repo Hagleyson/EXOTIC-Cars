@@ -3,84 +3,106 @@ import {
   Container,
   ContentCarousel,
   Layout,
+  Loader,
   Title,
 } from "@Components/index";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
-import img1 from "../assets/img/ferrari/FerrariCalifornia2.png";
-import img2 from "../assets/img/ferrari/FerrariCalifornia3.png";
-import img3 from "../assets/img/ferrari/FerrariCalifornia.png";
-import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { useEffect, useState } from "react";
+import { carTypes, fetchCar, imgType } from "src/helpers";
+import { toast } from "react-toastify";
 const Details = () => {
   const navigate = useNavigate();
-  const carousel = [
-    { id: 1, img: img1 },
-    { id: 2, img: img2 },
-    { id: 3, img: img3 },
-  ];
-  const [currentImage, setCurrentImage] = useState(carousel[1] || carousel[0]);
-  const [imgs, setImgs] = useState(carousel);
+  const params = useParams();
+
+  const [itemDetais, setItemDetais] = useState<carTypes>();
+  const [currentImage, setCurrentImage] = useState<imgType>();
+  const [imgs, setImgs] = useState<imgType[]>([]);
+
+  const [isLoading, setIsLoading] = useState(false);
+
   const redirect = () => {
     navigate("/");
   };
   const nextImage = () => {
-    let x: any[] = [];
-    let newArray: any[] = [];
+    let newArray: imgType[] = imgs;
     if (imgs.length === 1) return;
-    imgs.forEach((img, idx, array) => {
-      if (currentImage.id === img.id) {
-        x.push(array[idx + 1]);
-        newArray.push(array[idx]);
-        newArray.push(array[idx + 1]);
-        newArray.push(array[idx - 1]);
-      }
-    });
-    setCurrentImage(x[0]);
+    const lastItem = newArray.pop();
+    if (lastItem) newArray.unshift(lastItem);
+    setCurrentImage(newArray[1]);
     setImgs(newArray);
   };
 
   const prevImage = () => {
-    let x: any[] = [];
-    let newArray: any[] = [];
+    let newArray: imgType[] = imgs;
     if (imgs.length === 1) return;
-    imgs.forEach((img, idx, array) => {
-      if (currentImage.id === img.id) {
-        x.push(array[idx - 1]);
-        newArray.push(array[idx + 1]);
-        newArray.push(array[idx - 1]);
-        newArray.push(array[idx]);
-      }
-    });
-    setCurrentImage(x[0]);
+    let firstItem = newArray.shift();
+    if (firstItem) newArray.push(firstItem);
+    setCurrentImage(newArray[1]);
     setImgs(newArray);
   };
+  const handleSelect = (idx: number) => {
+    let indiceSelected;
+
+    if (currentImage) indiceSelected = imgs.indexOf(currentImage);
+
+    if (indiceSelected || indiceSelected === 0) {
+      idx > indiceSelected && prevImage();
+      idx < indiceSelected && nextImage();
+      idx === indiceSelected && toast.warn("Item already selected");
+    }
+  };
   const listCarCarousel = () => {
-    return imgs.map((img) => {
+    return imgs.map((img, idx) => {
       return (
         <ContentCarousel
-          selected={img.id === currentImage.id}
+          selected={img.id === currentImage?.id}
           key={img.id}
           img={img.img}
-          handleClick={() => setCurrentImage(img)}
+          handleClick={() => handleSelect(idx)}
         />
       );
     });
   };
+  useEffect(() => {
+    const loaderCars = async () => {
+      setIsLoading(true);
+      if (!params.id) {
+        return <h1>Carro não localizado </h1>;
+      }
+      const request = await fetchCar(+params.id);
+
+      let img;
+      if (request.imgs.length > 1) {
+        img = request.imgs[1];
+      } else {
+        img = request.imgs[0];
+      }
+      setCurrentImage(img);
+      setImgs(request.imgs);
+      setItemDetais(request);
+      setIsLoading(false);
+    };
+    loaderCars();
+  }, [params.id]);
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <Layout>
       <Container type="details">
         <Container type="logo">
-          <img
-            src={require("../assets/img/ferrari/logoFerrari.png")}
-            alt="ferrari"
-          />
+          <img src={itemDetais?.logo} alt="logo" />
           <Title type="textDetails">
-            Ferrari California <p>$725/day</p>
+            {itemDetais?.name} {itemDetais?.model}
+            <p>${itemDetais?.price}/day</p>
           </Title>
         </Container>
         <Container type="colorDescription">
           <Title type="textDetails">
-            01 <p>Red</p>
+            {currentImage?.id} <p>{currentImage?.color}</p>
           </Title>
         </Container>
         <Container type="cartMain">
@@ -90,20 +112,25 @@ const Details = () => {
             </Button>
           </Container>
           <Container type="imgShowCart">
-            <img src={currentImage.img} alt="ferrari2" />
+            <img src={currentImage?.img} alt={currentImage?.label} />
             <Button typeStyle="carousel">
               Book now <BsArrowRight />
             </Button>
           </Container>
         </Container>
         <Container type="carousel">
-          <Button handleClick={prevImage} typeStyle="carousel" action={true}>
-            <BsArrowLeft />
-          </Button>
+          {imgs.length > 1 && (
+            <Button handleClick={prevImage} typeStyle="carousel" action={true}>
+              <BsArrowLeft />
+            </Button>
+          )}
+
           <Container type="imgsCarousel">{listCarCarousel()}</Container>
-          <Button handleClick={nextImage} typeStyle="carousel" action={true}>
-            <BsArrowRight />
-          </Button>
+          {imgs.length > 1 && (
+            <Button handleClick={nextImage} typeStyle="carousel" action={true}>
+              <BsArrowRight />
+            </Button>
+          )}
         </Container>
       </Container>
     </Layout>

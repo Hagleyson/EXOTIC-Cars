@@ -9,7 +9,6 @@ const Home = () => {
     const loaderCars = async () => {
       setIsLoading(true);
       const request = await fetchCar();
-      console.log(request);
       setCars(request);
       setIsLoading(false);
     };
@@ -22,13 +21,15 @@ const Home = () => {
         <Loader />
       ) : (
         <Container type="home">
-          {cars.map(({ id, name, model, price, imgs }) => (
+          {cars.map(({ id, name, model, price, imgs, logo }) => (
             <Card
+              id={id}
               key={id}
               name={name}
               model={model}
               price={price}
               imgs={imgs}
+              logo={logo}
             />
           ))}
         </Container>

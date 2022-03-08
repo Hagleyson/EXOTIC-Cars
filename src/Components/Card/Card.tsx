@@ -4,21 +4,16 @@ import { Container, Title } from "..";
 import { CardStyles } from "./CardStyles";
 
 import { useNavigate } from "react-router-dom";
-type propsType = {
-  name?: string;
-  model?: string;
-  imgs: { img: string; label: string }[];
-  price?: string;
-};
+import { carTypes } from "src/helpers";
 
-const Card: FC<propsType> = (props) => {
+const Card: FC<carTypes> = (props) => {
   const [selectedImg, setSelectedImg] = useState(0);
   const navigate = useNavigate();
   const toggleImage = (idx: number) => {
     setSelectedImg(idx);
   };
-  const redirect = () => {
-    navigate("/details");
+  const redirect = (id: number) => {
+    navigate(`/details/${id}`);
   };
   return (
     <CardStyles>
@@ -32,7 +27,7 @@ const Card: FC<propsType> = (props) => {
             />
           ))}
       </Container>
-      <Container handleClick={redirect} type="card">
+      <Container handleClick={() => redirect(props.id)} type="card">
         <Title type="cardModel">
           {props.name} <p>{props.model?.toUpperCase()}</p>
         </Title>
