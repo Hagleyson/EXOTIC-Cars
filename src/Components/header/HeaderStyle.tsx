@@ -9,7 +9,8 @@ export const HeaderStyle = styled.header`
   justify-content: space-between;
   background-color: ${theme.white};
   box-shadow: ${theme.boxShadow};
-  position: absolute;
+  position: fixed;
+
   top: 0;
   z-index: 1;
   @media screen and (max-width: 1107px) {

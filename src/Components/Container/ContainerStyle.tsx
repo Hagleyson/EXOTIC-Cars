@@ -12,16 +12,34 @@ export const ContainerStyle = styled.div`
   ${(props: propsType) =>
     props.type === "home" &&
     `
-        width:100%;
-        height: 100%;            
+        width:100%;            
         display: flex;
         padding:10px 100px;
         justify-content: space-between;          
         flex-wrap: wrap;
         align-items: flex-start; 
+        position:relative;
         @media screen and (max-width: 583px) {
             padding: 20px 40px;
-        }        
+        }      
+        .goToTheTop{
+            width:73px ;
+            height:73px ;
+            border-radius:50% ;
+            background-color:${theme.purpleLight};
+            font-size:5rem;
+            color:${theme.white};
+            display:flex ;
+            justify-content:center ;
+            align-items:center ; 
+            position:absolute;
+            bottom:0px;    
+            right:50px;   
+            &:hover{
+                cursor:pointer ;
+                background-color:${theme.purple} ;
+            }            
+        }  
     `}
 
   ${(props: propsType) =>

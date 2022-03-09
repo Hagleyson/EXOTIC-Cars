@@ -8,6 +8,5 @@ export const MainStyle = styled.main`
   position: absolute;
   top: 80px;
   background-color: ${theme.background};
-  overflow: auto;
   z-index: 0;
 `;
