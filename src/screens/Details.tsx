@@ -129,7 +129,7 @@ const Details = () => {
           <Container type="carousel">
             {imgs.length > 1 && (
               <Button
-                handleClick={prevImage}
+                handleClick={nextImage}
                 typeStyle="carousel"
                 action={true}
               >
@@ -140,7 +140,7 @@ const Details = () => {
             <Container type="imgsCarousel">{listCarCarousel()}</Container>
             {imgs.length > 1 && (
               <Button
-                handleClick={nextImage}
+                handleClick={prevImage}
                 typeStyle="carousel"
                 action={true}
               >
