@@ -224,4 +224,19 @@ export const ContainerStyle = styled.div`
         }   
         
      `};
+  ${(props: propsType) =>
+    props.type === "notFound" &&
+    `
+        width: 100%;
+        height:100vh;       
+        max-height:100%;
+        display:flex;
+        justify-content: center;       
+        align-items: center;           
+        flex-direction: column;
+        >button{
+            margin-top:20px;
+        }      
+           
+     `};
 `;

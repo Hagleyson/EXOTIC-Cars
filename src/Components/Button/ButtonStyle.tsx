@@ -74,10 +74,10 @@ export const ButtonStyle = styled.button`
             height: 42px;
             border-radius:50%;
             padding:0px;
-            width: 32px;
+            width: 42px;
             @media screen and (max-width: 823px){              
-              width: 30px;
-              height: 40px;
+              width:35px;
+              height: 35px;
             } 
         `
         }
