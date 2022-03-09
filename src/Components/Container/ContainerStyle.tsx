@@ -56,6 +56,7 @@ export const ContainerStyle = styled.div`
             max-width: 70%;            
             position:absolute;            
         }
+            
         @media screen and (max-width: 612px){
             img{                
                 max-width:90%;
@@ -94,7 +95,10 @@ export const ContainerStyle = styled.div`
         width: 100%;
         height: 100%;      
         background: transparent linear-gradient(125deg, #FFFFFF 0%, #D8D7D7 100%) 0% 0% no-repeat padding-box;               
-        position:relative;                  
+        position:relative;  
+        @media screen and (max-width: 1440px){
+            
+        }                
     `}
 
      ${(props: propsType) =>
@@ -103,10 +107,23 @@ export const ContainerStyle = styled.div`
         position:absolute;
         top:60px;
         left: 40px;                        
-        >img{
-          width   :91px ;
+        >img{          
           height: 123px;
         }
+        @media screen and (max-width: 1440px){
+            top:30px;
+            left: 40px;            
+            
+        }
+        @media screen and (max-width:900px){
+            >img{          
+              height: 80px;
+            }
+        }
+        @media screen and (max-width: 680px){
+            left: 10px;
+        }  
+        
     `}
 
     ${(props: propsType) =>
@@ -114,7 +131,10 @@ export const ContainerStyle = styled.div`
     `
         position:absolute;        
         top:120px;
-        right: 80px;               
+        right: 80px;  
+        @media screen and (max-width: 680px){
+            right: 10px;
+        }              
     `}
     
     ${(props: propsType) =>
@@ -124,12 +144,25 @@ export const ContainerStyle = styled.div`
         height: 70%;
         justify-content: center;
         position:relative;                
+        padding-top:50px;        
         >div:first-child{                        
             padding-left:40px;
             position:absolute;
             left:40px;
             top:calc(50% - 10px);        
-        }          
+        }       
+        @media screen and (max-width: 1440px){
+            >div:first-child{                                    
+                position:absolute;
+                left:0px;
+                top:calc(50%);        
+             } 
+        }  
+        @media screen and (max-width: 680px){
+            >div:first-child{                                    
+                padding-left:0px;   
+             } 
+        }  
                                  
     `}
     ${(props: propsType) =>
@@ -139,13 +172,25 @@ export const ContainerStyle = styled.div`
         height: 100%;
         justify-content: center;                        
         flex-direction: column;        
+        padding:40px;        
         >img{
             width: 50%;
-            height: 50%;       
-                 
+            height: 70%;                        
         }    
-        
+        >button{
+            position:absolute;
+            bottom:10px;
+        }
+        @media screen and (max-width: 680px){
+            
+          >img{
+            width: 80%;
+            
+          margin-left:20px;
+          }
+        }  
     `}
+        
   ${(props: propsType) =>
     props.type === "carousel" &&
     `
@@ -155,17 +200,28 @@ export const ContainerStyle = styled.div`
         justify-content: center;
         align-items: center;           
         padding:20px;
+        @media screen and (max-width: 1440px){
+            height:25%;  
+            max-height:25%;          
+        }   
         
      `};
 
   ${(props: propsType) =>
     props.type === "imgsCarousel" &&
     `
-        width: 85%;
+        width: 65%;
         height:100%;       
         max-height:100%;
         overflow: auto;            
         justify-content: space-around;       
-        align-items: baseline;        
+        align-items: baseline;    
+        @media screen and (max-width: 1440px){
+            width: 60%;       
+        }     
+        @media screen and (max-width: 900px){
+            width: 70%;       
+        }   
+        
      `};
 `;

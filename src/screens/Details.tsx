@@ -68,20 +68,25 @@ const Details = () => {
   useEffect(() => {
     const loaderCars = async () => {
       setIsLoading(true);
+      console.log(!params.id);
       if (!params.id) {
-        return <h1>Carro não localizado </h1>;
+        setIsLoading(false);
+        return;
       }
       const request = await fetchCar(+params.id);
 
-      let img;
-      if (request.imgs.length > 1) {
-        img = request.imgs[1];
-      } else {
-        img = request.imgs[0];
+      if (request) {
+        let img;
+        if (request.imgs.length > 1) {
+          img = request.imgs[1];
+        } else {
+          img = request.imgs[0];
+        }
+        setCurrentImage(img);
+        setImgs(request.imgs);
+        setItemDetais(request);
       }
-      setCurrentImage(img);
-      setImgs(request.imgs);
-      setItemDetais(request);
+
       setIsLoading(false);
     };
     loaderCars();
@@ -92,47 +97,59 @@ const Details = () => {
 
   return (
     <Layout>
-      <Container type="details">
-        <Container type="logo">
-          <img src={itemDetais?.logo} alt="logo" />
-          <Title type="textDetails">
-            {itemDetais?.name} {itemDetais?.model}
-            <p>${itemDetais?.price}/day</p>
-          </Title>
-        </Container>
-        <Container type="colorDescription">
-          <Title type="textDetails">
-            {currentImage?.id} <p>{currentImage?.color}</p>
-          </Title>
-        </Container>
-        <Container type="cartMain">
-          <Container>
-            <Button typeStyle="carousel" handleClick={redirect} secondary>
-              <BsArrowLeft /> Back to catalog
-            </Button>
+      {!params.id || !itemDetais ? (
+        <Title type="notFound">Unable to load car details</Title>
+      ) : (
+        <Container type="details">
+          <Container type="logo">
+            <img src={itemDetais?.logo} alt="logo" />
+            <Title type="textDetails">
+              {itemDetais?.name} {itemDetais?.model}
+              <p>${itemDetais?.price}/day</p>
+            </Title>
           </Container>
-          <Container type="imgShowCart">
-            <img src={currentImage?.img} alt={currentImage?.label} />
-            <Button typeStyle="carousel">
-              Book now <BsArrowRight />
-            </Button>
+          <Container type="colorDescription">
+            <Title type="textDetails">
+              {currentImage?.id} <p>{currentImage?.color}</p>
+            </Title>
           </Container>
-        </Container>
-        <Container type="carousel">
-          {imgs.length > 1 && (
-            <Button handleClick={prevImage} typeStyle="carousel" action={true}>
-              <BsArrowLeft />
-            </Button>
-          )}
+          <Container type="cartMain">
+            <Container>
+              <Button typeStyle="carousel" handleClick={redirect} secondary>
+                <BsArrowLeft /> <span>Back to catalog</span>
+              </Button>
+            </Container>
+            <Container type="imgShowCart">
+              <img src={currentImage?.img} alt={currentImage?.label} />
+              <Button typeStyle="carousel">
+                Book now <BsArrowRight />
+              </Button>
+            </Container>
+          </Container>
+          <Container type="carousel">
+            {imgs.length > 1 && (
+              <Button
+                handleClick={prevImage}
+                typeStyle="carousel"
+                action={true}
+              >
+                <BsArrowLeft />
+              </Button>
+            )}
 
-          <Container type="imgsCarousel">{listCarCarousel()}</Container>
-          {imgs.length > 1 && (
-            <Button handleClick={nextImage} typeStyle="carousel" action={true}>
-              <BsArrowRight />
-            </Button>
-          )}
+            <Container type="imgsCarousel">{listCarCarousel()}</Container>
+            {imgs.length > 1 && (
+              <Button
+                handleClick={nextImage}
+                typeStyle="carousel"
+                action={true}
+              >
+                <BsArrowRight />
+              </Button>
+            )}
+          </Container>
         </Container>
-      </Container>
+      )}
     </Layout>
   );
 };

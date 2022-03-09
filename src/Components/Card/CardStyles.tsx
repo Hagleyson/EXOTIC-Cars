@@ -15,6 +15,7 @@ export const CardStyles = styled.div`
   }
   @media screen and (max-width: 612px) {
     width: 100%;
+    height: 300px;
   }
   &:hover {
     cursor: pointer;

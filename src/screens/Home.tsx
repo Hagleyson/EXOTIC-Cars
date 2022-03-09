@@ -1,4 +1,4 @@
-import { Card, Container, Layout, Loader } from "@Components/index";
+import { Card, Container, Layout, Loader, Title } from "@Components/index";
 import { useEffect, useState } from "react";
 import { fetchCar } from "src/helpers";
 import { IoIosArrowUp } from "react-icons/io";
@@ -9,7 +9,9 @@ const Home = () => {
     const loaderCars = async () => {
       setIsLoading(true);
       const request = await fetchCar();
-      setCars(request);
+      if (request) {
+        setCars(request);
+      }
       setIsLoading(false);
     };
     loaderCars();
@@ -17,8 +19,9 @@ const Home = () => {
 
   return (
     <Layout type="home">
-      {isLoading ? (
-        <Loader />
+      {isLoading && <Loader />}
+      {!isLoading && cars.length < 1 ? (
+        <Title type="notFound">Could not load the cars</Title>
       ) : (
         <Container type="home">
           {cars.map(({ id, name, model, price, imgs, logo }) => (

@@ -103,21 +103,6 @@
       ]
     },
     {
-      "id": "7",
-      "name": "Lamborghini",
-      "model": "Aventador",
-      "price": "90000",
-      "logo": "https://i.ibb.co/Yfs9CSZ/lambo-removebg-preview.png",
-      "imgs": [
-        {
-          "id": "01",
-          "color": "White",
-          "img": "https://i.ibb.co/TgPDfgd/Lamborghini-Aventador.png",
-          "label": "lamborghini aventador"
-        }
-      ]
-    },
-    {
       "id": "8",
       "name": "Mclaren",
       "model": "P1 GTR",
@@ -249,36 +234,6 @@
           "color": "Blue",
           "img": "https://i.ibb.co/NW3fVjs/03.png",
           "label": "nissan skyline gtr r34"
-        }
-      ]
-    },
-    {
-      "id": "15",
-      "name": "Mitsubishi",
-      "model": "Eclipse",
-      "price": "240000",
-      "logo": "https://i.ibb.co/LJvCmYs/mit-removebg-preview.png",
-      "imgs": [
-        {
-          "id": "01",
-          "color": "Silver",
-          "img": "https://i.ibb.co/HVswqLt/01-removebg-preview.png",
-          "label": "Mitsubishi Eclipse"
-        }
-      ]
-    },
-    {
-      "id": "16",
-      "name": "Toyota",
-      "model": "Supra",
-      "price": "140000",
-      "logo": "https://i.ibb.co/X8d4KfY/toy-removebg-preview.png",
-      "imgs": [
-        {
-          "id": "01",
-          "color": "Orange",
-          "img": "https://i.ibb.co/4sgnRpb/6bc0de26a9d12162a73cb159c39e1dc7-removebg-preview.png",
-          "label": "Toyota Supra"
         }
       ]
     }
